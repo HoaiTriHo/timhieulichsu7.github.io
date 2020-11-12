@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Daily History</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Charm:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="wrap">
+        <div>
+            <h1 class="title">Lịch sử hằng ngày</h1>
+        </div>
+        <div id="container" class="form-search" style="position: relative;">
+            <div style="display: flex;align-items: center;flex-direction: column;">
+                <div class="form">
+                    <label for="date"> Nhập mốc sự kiện</label>
+                    <input type="text" id="event" placeholder="Ngày-Tháng-Năm">
+                    <ul style="display: none; position: absolute;width: 40%;height: 400px;overflow: scroll;top:90px" class="result"
+                        id="resultEvent">
+
+                    </ul>
+                </div>
+                <div class="form">
+                    <label for="date"> Tên nhân vật lịch sử</label>
+                    <input type="text" id="namename" placeholder="Vd: Nguyễn Trãi">
+                    <ul style="display: none; width: 40%;position: absolute;height: 400px;overflow: scroll;top:190px" class="result"
+                        id="resultName">
+
+                    </ul>
+                </div>
+                <div class="form">
+                    <label for="date"> Tên sự kiện lịch sử</label>
+                    <input type="text" id="history" placeholder="Vd: Trận chiến sông Bạch Đằng">
+                    <ul style="display: none; width: 40%;position: absolute;height: 400px;overflow: scroll;top:290px" class="result"
+                        id="resultHistory">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <style>
+            th {
+                border: 1px solid black;
+            }
+        </style>
+        <div id="popup">
+            <button id='cancel'>Đóng</button>
+            <div id="content">
+                <h1 style="color:brown;font-size:40px">SỰ KIỆN LỊCH SỬ CHIẾN TRANH THẾ GIỚI THỨ 2</h1>
+                <h2 style="color:red">Nước tham gia</h2>
+                <img style="width: 50%;" src="./images/Screen Shot 2020-11-12 at 20.46.30.png" alt="">
+                <h2 style="color:red">Lực lượng</h2>
+                <img src="./images/Screen Shot 2020-11-12 at 20.51.24.png" alt="" srcset="">
+                <h2 style="color:red">Thương vong và tổn thất</h2>
+                <img src="./images/Screen Shot 2020-11-12 at 20.52.46.png" alt="" srcset="">
+                <h2 style="color:red;margin-top: 30px;">Diễn biến cuộc chiến</h2>
+                <table style="font-size:18px;margin-top: 20px;" id='table'>
+
+                </table>
+                <h2 style="color:red">Kết quả cuộc chiến</h2>
+                <div style="font-size: 20px;width:95%;margin:auto;text-align: justify;" id="result"></div>
+
+                <h2 style="color:red">Video tham khảo</h2>
+                <iframe width="100%" height="646" src="https://www.youtube.com/embed/5C47LyX-1IQ" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+
+                <iframe width="100%" height="646"
+                    src="https://www.youtube.com/embed/gi2Dtv87MQ0?list=PLHvl0iYV7uL-iCR_9zlCdIecaSSzLW6HS"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+<script>
+    const jsonEvent = [
+        {
+            'id': '1',
+            'event': '9-1-1939',
+            'country': 'Đức , Ba Lan ',
+            'content': 'Đức tấn công Ba Lan.',
+            'result': 'Hậu quả trực tiếp của chiến tranh này là sự chiến thắng của phía Đồng Minh. Mỗi nước trong phe Trục đều phải đầu hàng vô điều kiện. Đức bị các lực lượng từ Mỹ, Anh, Liên Xô và Pháp chiếm đóng, trong khi Áo bị chia cắt từ Đức và cũng bị chiếm đóng một cách tương tự. Nhật bị quân Mỹ chiếm đóng trong khi Liên Xô chiếm đóng các nước Đông Âu.Trái với Chiến tranh thế giới thứ nhất, khi các giới hạn làm suy yếu các nước và các nước thua cuộc bị ngăn chặn việc tái hội nhập cộng đồng quốc tế, các nước thua cuộc đã được cung cấp viện trợ để phục hồi và hội nhập cộng đồng thế giới như các quốc gia hoà bình khác. Vì lẽ đó, Đức và Nhật đã trở thành hai nước quan trọng và có nhiều ảnh hưởng mà không cần phải khiêu chiến.Sự thất bại của Hội Quốc Liên trong việc ngăn chặn chiến tranh đã dẫn đến việc thành lập Liên Hiệp Quốc, một tổ chức quốc tế mới và có nhiều sửa đổi, cho đến nay vẫn là tổ chức quan trọng nhất trong việc thúc đẩy hoà bình và hợp tác.',
+            'image': '1024px-Vietnam_Peace_Treaty_1973.jpg'
+        },
+
+        {
+            'id': '1',
+            'event': '1939-1940',
+            'country': 'Đức , Ba Lan ,Anh , Pháp',
+            'content': 'Đức chiếm được Ba Lan , Anh, Pháp tuyên chiến với Đức. Đức áp dụng chiến thuật “đánh nhanh thắng nhanh”,chiếm được Ba Lan trong vòng 1 tháng. Anh, Pháp dù tuyên chiến với Đức, song không có hành động quân sự nào chi viện cho Ba Lan.',
+            'result': 'Hậu quả trực tiếp của chiến tranh này là sự chiến thắng của phía Đồng Minh. Mỗi nước trong phe Trục đều phải đầu hàng vô điều kiện. Đức bị các lực lượng từ Mỹ, Anh, Liên Xô và Pháp chiếm đóng, trong khi Áo bị chia cắt từ Đức và cũng bị chiếm đóng một cách tương tự. Nhật bị quân Mỹ chiếm đóng trong khi Liên Xô chiếm đóng các nước Đông Âu.Trái với Chiến tranh thế giới thứ nhất, khi các giới hạn làm suy yếu các nước và các nước thua cuộc bị ngăn chặn việc tái hội nhập cộng đồng quốc tế, các nước thua cuộc đã được cung cấp viện trợ để phục hồi và hội nhập cộng đồng thế giới như các quốc gia hoà bình khác. Vì lẽ đó, Đức và Nhật đã trở thành hai nước quan trọng và có nhiều ảnh hưởng mà không cần phải khiêu chiến.Sự thất bại của Hội Quốc Liên trong việc ngăn chặn chiến tranh đã dẫn đến việc thành lập Liên Hiệp Quốc, một tổ chức quốc tế mới và có nhiều sửa đổi, cho đến nay vẫn là tổ chức quan trọng nhất trong việc thúc đẩy hoà bình và hợp tác.',
+            'image': '1024px-Vietnam_Peace_Treaty_1973.jpg'
+        },
+        {
+            'id': '1',
+            'event': '4-1940',
+            'country': 'Đức',
+            'content': 'Đức chuyển hướng từ phía Đông sang phía Tây, tấn công và chiếm hàng loạt các nước: Đan Mạch,Nauy, Bỉ, Hà Lan,…',
+            'result': 'Hậu quả trực tiếp của chiến tranh này là sự chiến thắng của phía Đồng Minh. Mỗi nước trong phe Trục đều phải đầu hàng vô điều kiện. Đức bị các lực lượng từ Mỹ, Anh, Liên Xô và Pháp chiếm đóng, trong khi Áo bị chia cắt từ Đức và cũng bị chiếm đóng một cách tương tự. Nhật bị quân Mỹ chiếm đóng trong khi Liên Xô chiếm đóng các nước Đông Âu.Trái với Chiến tranh thế giới thứ nhất, khi các giới hạn làm suy yếu các nước và các nước thua cuộc bị ngăn chặn việc tái hội nhập cộng đồng quốc tế, các nước thua cuộc đã được cung cấp viện trợ để phục hồi và hội nhập cộng đồng thế giới như các quốc gia hoà bình khác. Vì lẽ đó, Đức và Nhật đã trở thành hai nước quan trọng và có nhiều ảnh hưởng mà không cần phải khiêu chiến.Sự thất bại của Hội Quốc Liên trong việc ngăn chặn chiến tranh đã dẫn đến việc thành lập Liên Hiệp Quốc, một tổ chức quốc tế mới và có nhiều sửa đổi, cho đến nay vẫn là tổ chức quan trọng nhất trong việc thúc đẩy hoà bình và hợp tác.',
+            'image': '1024px-Vietnam_Peace_Treaty_1973.jpg'
+        },
+        {
+            'id': '4',
+            'event': '6-1940',
+            'country': 'Pháp',
+            'content': 'Đức tấn công Pháp',
+            'result': 'Hậu quả trực tiếp của chiến tranh này là sự chiến thắng của phía Đồng Minh. Mỗi nước trong phe Trục đều phải đầu hàng vô điều kiện. Đức bị các lực lượng từ Mỹ, Anh, Liên Xô và Pháp chiếm đóng, trong khi Áo bị chia cắt từ Đức và cũng bị chiếm đóng một cách tương tự. Nhật bị quân Mỹ chiếm đóng trong khi Liên Xô chiếm đóng các nước Đông Âu.Trái với Chiến tranh thế giới thứ nhất, khi các giới hạn làm suy yếu các nước và các nước thua cuộc bị ngăn chặn việc tái hội nhập cộng đồng quốc tế, các nước thua cuộc đã được cung cấp viện trợ để phục hồi và hội nhập cộng đồng thế giới như các quốc gia hoà bình khác. Vì lẽ đó, Đức và Nhật đã trở thành hai nước quan trọng và có nhiều ảnh hưởng mà không cần phải khiêu chiến.Sự thất bại của Hội Quốc Liên trong việc ngăn chặn chiến tranh đã dẫn đến việc thành lập Liên Hiệp Quốc, một tổ chức quốc tế mới và có nhiều sửa đổi, cho đến nay vẫn là tổ chức quan trọng nhất trong việc thúc đẩy hoà bình và hợp tác.',
+            'image': '1024px-Vietnam_Peace_Treaty_1973.jpg'
+        },
+        {
+            'id': '5',
+            'event': '10-1940',
+            'country': 'Đức , Đông Âu ,Nam Âu',
+            'content': 'Đức chuyển sang thôn tính các nước Đông và Nam Âu. Đến mùa hè năm 1941, phe phát xít đã thống trị phầnlớn châu Âu. Đức đã chuẩn bị xong điều kiện tấn công Liên Xô.  ',
+            'result': 'Hậu quả trực tiếp của chiến tranh này là sự chiến thắng của phía Đồng Minh. Mỗi nước trong phe Trục đều phải đầu hàng vô điều kiện. Đức bị các lực lượng từ Mỹ, Anh, Liên Xô và Pháp chiếm đóng, trong khi Áo bị chia cắt từ Đức và cũng bị chiếm đóng một cách tương tự. Nhật bị quân Mỹ chiếm đóng trong khi Liên Xô chiếm đóng các nước Đông Âu.Trái với Chiến tranh thế giới thứ nhất, khi các giới hạn làm suy yếu các nước và các nước thua cuộc bị ngăn chặn việc tái hội nhập cộng đồng quốc tế, các nước thua cuộc đã được cung cấp viện trợ để phục hồi và hội nhập cộng đồng thế giới như các quốc gia hoà bình khác. Vì lẽ đó, Đức và Nhật đã trở thành hai nước quan trọng và có nhiều ảnh hưởng mà không cần phải khiêu chiến.Sự thất bại của Hội Quốc Liên trong việc ngăn chặn chiến tranh đã dẫn đến việc thành lập Liên Hiệp Quốc, một tổ chức quốc tế mới và có nhiều sửa đổi, cho đến nay vẫn là tổ chức quan trọng nhất trong việc thúc đẩy hoà bình và hợp tác.',
+            'image': '1024px-Vietnam_Peace_Treaty_1973.jpg'
+        },
+        {
+            'id': '6',
+            'event': '22-6-1941',
+            'country': 'Đức , Ba Lan ',
+            'content': 'Đức tấn công Liên Xô',
+            'result': 'Hậu quả trực tiếp của chiến tranh này là sự chiến thắng của phía Đồng Minh. Mỗi nước trong phe Trục đều phải đầu hàng vô điều kiện. Đức bị các lực lượng từ Mỹ, Anh, Liên Xô và Pháp chiếm đóng, trong khi Áo bị chia cắt từ Đức và cũng bị chiếm đóng một cách tương tự. Nhật bị quân Mỹ chiếm đóng trong khi Liên Xô chiếm đóng các nước Đông Âu.Trái với Chiến tranh thế giới thứ nhất, khi các giới hạn làm suy yếu các nước và các nước thua cuộc bị ngăn chặn việc tái hội nhập cộng đồng quốc tế, các nước thua cuộc đã được cung cấp viện trợ để phục hồi và hội nhập cộng đồng thế giới như các quốc gia hoà bình khác. Vì lẽ đó, Đức và Nhật đã trở thành hai nước quan trọng và có nhiều ảnh hưởng mà không cần phải khiêu chiến.Sự thất bại của Hội Quốc Liên trong việc ngăn chặn chiến tranh đã dẫn đến việc thành lập Liên Hiệp Quốc, một tổ chức quốc tế mới và có nhiều sửa đổi, cho đến nay vẫn là tổ chức quan trọng nhất trong việc thúc đẩy hoà bình và hợp tác.',
+            'image': '1024px-Vietnam_Peace_Treaty_1973.jpg'
+        },
+        {
+            'id': '7',
+            'event': '12-1941',
+            'country': ' ',
+            'content': 'Nhân dân Liên Xô làm nên chiến thắng Mát-xcơ-va',
+            'result': 'Hậu quả trực tiếp của chiến tranh này là sự chiến thắng của phía Đồng Minh. Mỗi nước trong phe Trục đều phải đầu hàng vô điều kiện. Đức bị các lực lượng từ Mỹ, Anh, Liên Xô và Pháp chiếm đóng, trong khi Áo bị chia cắt từ Đức và cũng bị chiếm đóng một cách tương tự. Nhật bị quân Mỹ chiếm đóng trong khi Liên Xô chiếm đóng các nước Đông Âu.Trái với Chiến tranh thế giới thứ nhất, khi các giới hạn làm suy yếu các nước và các nước thua cuộc bị ngăn chặn việc tái hội nhập cộng đồng quốc tế, các nước thua cuộc đã được cung cấp viện trợ để phục hồi và hội nhập cộng đồng thế giới như các quốc gia hoà bình khác. Vì lẽ đó, Đức và Nhật đã trở thành hai nước quan trọng và có nhiều ảnh hưởng mà không cần phải khiêu chiến.Sự thất bại của Hội Quốc Liên trong việc ngăn chặn chiến tranh đã dẫn đến việc thành lập Liên Hiệp Quốc, một tổ chức quốc tế mới và có nhiều sửa đổi, cho đến nay vẫn là tổ chức quan trọng nhất trong việc thúc đẩy hoà bình và hợp tác.',
+            'image': '1024px-Vietnam_Peace_Treaty_1973.jpg'
+        },
+        {
+            'id': '8',
+            'event': '10-1941',
+            'country': '',
+            'content': 'Liên quân Mĩ – Anh giành thắng lợi trong trận En A-la-men',
+            'result': 'Hậu quả trực tiếp của chiến tranh này là sự chiến thắng của phía Đồng Minh. Mỗi nước trong phe Trục đều phải đầu hàng vô điều kiện. Đức bị các lực lượng từ Mỹ, Anh, Liên Xô và Pháp chiếm đóng, trong khi Áo bị chia cắt từ Đức và cũng bị chiếm đóng một cách tương tự. Nhật bị quân Mỹ chiếm đóng trong khi Liên Xô chiếm đóng các nước Đông Âu.Trái với Chiến tranh thế giới thứ nhất, khi các giới hạn làm suy yếu các nước và các nước thua cuộc bị ngăn chặn việc tái hội nhập cộng đồng quốc tế, các nước thua cuộc đã được cung cấp viện trợ để phục hồi và hội nhập cộng đồng thế giới như các quốc gia hoà bình khác. Vì lẽ đó, Đức và Nhật đã trở thành hai nước quan trọng và có nhiều ảnh hưởng mà không cần phải khiêu chiến.Sự thất bại của Hội Quốc Liên trong việc ngăn chặn chiến tranh đã dẫn đến việc thành lập Liên Hiệp Quốc, một tổ chức quốc tế mới và có nhiều sửa đổi, cho đến nay vẫn là tổ chức quan trọng nhất trong việc thúc đẩy hoà bình và hợp tác.',
+            'image': '1024px-Vietnam_Peace_Treaty_1973.jpg'
+        },
+        {
+            'id': '9',
+            'event': '7-12-1941',
+            'country': '',
+            'content': 'Nhật bất ngờ tấn công hạm đội Mỹ ở Trân Châu Cảng.',
+            'result': 'Hậu quả trực tiếp của chiến tranh này là sự chiến thắng của phía Đồng Minh. Mỗi nước trong phe Trục đều phải đầu hàng vô điều kiện. Đức bị các lực lượng từ Mỹ, Anh, Liên Xô và Pháp chiếm đóng, trong khi Áo bị chia cắt từ Đức và cũng bị chiếm đóng một cách tương tự. Nhật bị quân Mỹ chiếm đóng trong khi Liên Xô chiếm đóng các nước Đông Âu.Trái với Chiến tranh thế giới thứ nhất, khi các giới hạn làm suy yếu các nước và các nước thua cuộc bị ngăn chặn việc tái hội nhập cộng đồng quốc tế, các nước thua cuộc đã được cung cấp viện trợ để phục hồi và hội nhập cộng đồng thế giới như các quốc gia hoà bình khác. Vì lẽ đó, Đức và Nhật đã trở thành hai nước quan trọng và có nhiều ảnh hưởng mà không cần phải khiêu chiến.Sự thất bại của Hội Quốc Liên trong việc ngăn chặn chiến tranh đã dẫn đến việc thành lập Liên Hiệp Quốc, một tổ chức quốc tế mới và có nhiều sửa đổi, cho đến nay vẫn là tổ chức quan trọng nhất trong việc thúc đẩy hoà bình và hợp tác.',
+            'image': '1024px-Vietnam_Peace_Treaty_1973.jpg'
+        },
+        {
+            'id': '10',
+            'event': 'Từ 12/1941 đến 5/1942',
+            'country': '',
+            'content': 'Nhật Bản mở một loạt cuộc tấn công. Chiếm một vùng rộng lớn ở Đông á, Đông Nam Á,Thái Bình Dương.',
+            'result': 'Hậu quả trực tiếp của chiến tranh này là sự chiến thắng của phía Đồng Minh. Mỗi nước trong phe Trục đều phải đầu hàng vô điều kiện. Đức bị các lực lượng từ Mỹ, Anh, Liên Xô và Pháp chiếm đóng, trong khi Áo bị chia cắt từ Đức và cũng bị chiếm đóng một cách tương tự. Nhật bị quân Mỹ chiếm đóng trong khi Liên Xô chiếm đóng các nước Đông Âu.Trái với Chiến tranh thế giới thứ nhất, khi các giới hạn làm suy yếu các nước và các nước thua cuộc bị ngăn chặn việc tái hội nhập cộng đồng quốc tế, các nước thua cuộc đã được cung cấp viện trợ để phục hồi và hội nhập cộng đồng thế giới như các quốc gia hoà bình khác. Vì lẽ đó, Đức và Nhật đã trở thành hai nước quan trọng và có nhiều ảnh hưởng mà không cần phải khiêu chiến.Sự thất bại của Hội Quốc Liên trong việc ngăn chặn chiến tranh đã dẫn đến việc thành lập Liên Hiệp Quốc, một tổ chức quốc tế mới và có nhiều sửa đổi, cho đến nay vẫn là tổ chức quan trọng nhất trong việc thúc đẩy hoà bình và hợp tác.',
+            'image': '1024px-Vietnam_Peace_Treaty_1973.jpg'
+        },
+        {
+            'id': '11',
+            'event': '11/1942 đến 2/1943',
+            'country': '',
+            'content': 'Hồng quân Liên Xô giành thắng lợi trong trận Xta-lin-grat tạo nên bước ngoặt của cuộc chiến tranh: Liên Xô và phe Đồng minh chuyển sang phản công trên tất cả các mặt trận.',
+            'result': 'Hậu quả trực tiếp của chiến tranh này là sự chiến thắng của phía Đồng Minh. Mỗi nước trong phe Trục đều phải đầu hàng vô điều kiện. Đức bị các lực lượng từ Mỹ, Anh, Liên Xô và Pháp chiếm đóng, trong khi Áo bị chia cắt từ Đức và cũng bị chiếm đóng một cách tương tự. Nhật bị quân Mỹ chiếm đóng trong khi Liên Xô chiếm đóng các nước Đông Âu.Trái với Chiến tranh thế giới thứ nhất, khi các giới hạn làm suy yếu các nước và các nước thua cuộc bị ngăn chặn việc tái hội nhập cộng đồng quốc tế, các nước thua cuộc đã được cung cấp viện trợ để phục hồi và hội nhập cộng đồng thế giới như các quốc gia hoà bình khác. Vì lẽ đó, Đức và Nhật đã trở thành hai nước quan trọng và có nhiều ảnh hưởng mà không cần phải khiêu chiến.Sự thất bại của Hội Quốc Liên trong việc ngăn chặn chiến tranh đã dẫn đến việc thành lập Liên Hiệp Quốc, một tổ chức quốc tế mới và có nhiều sửa đổi, cho đến nay vẫn là tổ chức quan trọng nhất trong việc thúc đẩy hoà bình và hợp tác.',
+            'image': '1024px-Vietnam_Peace_Treaty_1973.jpg'
+        },
+        {
+            'id': '12',
+            'event': '8-1943',
+            'country': '',
+            'content': 'Hồng quân bẻ gãy cuộc phản công của Đức tại vòng cung Cuôcxcơ',
+            'result': 'Hậu quả trực tiếp của chiến tranh này là sự chiến thắng của phía Đồng Minh. Mỗi nước trong phe Trục đều phải đầu hàng vô điều kiện. Đức bị các lực lượng từ Mỹ, Anh, Liên Xô và Pháp chiếm đóng, trong khi Áo bị chia cắt từ Đức và cũng bị chiếm đóng một cách tương tự. Nhật bị quân Mỹ chiếm đóng trong khi Liên Xô chiếm đóng các nước Đông Âu.Trái với Chiến tranh thế giới thứ nhất, khi các giới hạn làm suy yếu các nước và các nước thua cuộc bị ngăn chặn việc tái hội nhập cộng đồng quốc tế, các nước thua cuộc đã được cung cấp viện trợ để phục hồi và hội nhập cộng đồng thế giới như các quốc gia hoà bình khác. Vì lẽ đó, Đức và Nhật đã trở thành hai nước quan trọng và có nhiều ảnh hưởng mà không cần phải khiêu chiến.Sự thất bại của Hội Quốc Liên trong việc ngăn chặn chiến tranh đã dẫn đến việc thành lập Liên Hiệp Quốc, một tổ chức quốc tế mới và có nhiều sửa đổi, cho đến nay vẫn là tổ chức quan trọng nhất trong việc thúc đẩy hoà bình và hợp tác.',
+            'image': '1024px-Vietnam_Peace_Treaty_1973.jpg'
+        },
+        {
+            'id': '13',
+            'event': '6-1944',
+            'country': '',
+            'content': 'Phần lớn lãnh thổ Liên Xô được giải phóng.',
+            'result': 'Hậu quả trực tiếp của chiến tranh này là sự chiến thắng của phía Đồng Minh. Mỗi nước trong phe Trục đều phải đầu hàng vô điều kiện. Đức bị các lực lượng từ Mỹ, Anh, Liên Xô và Pháp chiếm đóng, trong khi Áo bị chia cắt từ Đức và cũng bị chiếm đóng một cách tương tự. Nhật bị quân Mỹ chiếm đóng trong khi Liên Xô chiếm đóng các nước Đông Âu.Trái với Chiến tranh thế giới thứ nhất, khi các giới hạn làm suy yếu các nước và các nước thua cuộc bị ngăn chặn việc tái hội nhập cộng đồng quốc tế, các nước thua cuộc đã được cung cấp viện trợ để phục hồi và hội nhập cộng đồng thế giới như các quốc gia hoà bình khác. Vì lẽ đó, Đức và Nhật đã trở thành hai nước quan trọng và có nhiều ảnh hưởng mà không cần phải khiêu chiến.Sự thất bại của Hội Quốc Liên trong việc ngăn chặn chiến tranh đã dẫn đến việc thành lập Liên Hiệp Quốc, một tổ chức quốc tế mới và có nhiều sửa đổi, cho đến nay vẫn là tổ chức quan trọng nhất trong việc thúc đẩy hoà bình và hợp tác.',
+            'image': '1024px-Vietnam_Peace_Treaty_1973.jpg'
+        },
+        {
+            'id': '14',
+            'event': '3 đến tháng 5/1943',
+            'country': '',
+            'content': 'Liên quân Mỹ - Anh phản công quét sạch Đức- Italia khỏi Châu phi.',
+            'result': 'Hậu quả trực tiếp của chiến tranh này là sự chiến thắng của phía Đồng Minh. Mỗi nước trong phe Trục đều phải đầu hàng vô điều kiện. Đức bị các lực lượng từ Mỹ, Anh, Liên Xô và Pháp chiếm đóng, trong khi Áo bị chia cắt từ Đức và cũng bị chiếm đóng một cách tương tự. Nhật bị quân Mỹ chiếm đóng trong khi Liên Xô chiếm đóng các nước Đông Âu.Trái với Chiến tranh thế giới thứ nhất, khi các giới hạn làm suy yếu các nước và các nước thua cuộc bị ngăn chặn việc tái hội nhập cộng đồng quốc tế, các nước thua cuộc đã được cung cấp viện trợ để phục hồi và hội nhập cộng đồng thế giới như các quốc gia hoà bình khác. Vì lẽ đó, Đức và Nhật đã trở thành hai nước quan trọng và có nhiều ảnh hưởng mà không cần phải khiêu chiến.Sự thất bại của Hội Quốc Liên trong việc ngăn chặn chiến tranh đã dẫn đến việc thành lập Liên Hiệp Quốc, một tổ chức quốc tế mới và có nhiều sửa đổi, cho đến nay vẫn là tổ chức quan trọng nhất trong việc thúc đẩy hoà bình và hợp tác.',
+            'image': '1024px-Vietnam_Peace_Treaty_1973.jpg'
+        },
+        {
+            'id': '15',
+            'event': '1-1943',
+            'country': '',
+            'content': 'Mĩ giành thắng lợi trong trận Gua-đan-ca-nan. Sau đó phản công đánh chiếm các đảo ở Thái Bình Dương',
+            'result': 'Hậu quả trực tiếp của chiến tranh này là sự chiến thắng của phía Đồng Minh. Mỗi nước trong phe Trục đều phải đầu hàng vô điều kiện. Đức bị các lực lượng từ Mỹ, Anh, Liên Xô và Pháp chiếm đóng, trong khi Áo bị chia cắt từ Đức và cũng bị chiếm đóng một cách tương tự. Nhật bị quân Mỹ chiếm đóng trong khi Liên Xô chiếm đóng các nước Đông Âu.Trái với Chiến tranh thế giới thứ nhất, khi các giới hạn làm suy yếu các nước và các nước thua cuộc bị ngăn chặn việc tái hội nhập cộng đồng quốc tế, các nước thua cuộc đã được cung cấp viện trợ để phục hồi và hội nhập cộng đồng thế giới như các quốc gia hoà bình khác. Vì lẽ đó, Đức và Nhật đã trở thành hai nước quan trọng và có nhiều ảnh hưởng mà không cần phải khiêu chiến.Sự thất bại của Hội Quốc Liên trong việc ngăn chặn chiến tranh đã dẫn đến việc thành lập Liên Hiệp Quốc, một tổ chức quốc tế mới và có nhiều sửa đổi, cho đến nay vẫn là tổ chức quan trọng nhất trong việc thúc đẩy hoà bình và hợp tác.',
+            'image': '1024px-Vietnam_Peace_Treaty_1973.jpg'
+        },
+        {
+            'id': '16',
+            'event': '1-1945',
+            'country': '',
+            'content': 'Hồng Quân Liên Xô mở cuộc tấn công Đức ở mặt trận phía Đông Giải phóng các nước Trung và Đông Âu, tiến sát biên giới Đức',
+            'result': 'Hậu quả trực tiếp của chiến tranh này là sự chiến thắng của phía Đồng Minh. Mỗi nước trong phe Trục đều phải đầu hàng vô điều kiện. Đức bị các lực lượng từ Mỹ, Anh, Liên Xô và Pháp chiếm đóng, trong khi Áo bị chia cắt từ Đức và cũng bị chiếm đóng một cách tương tự. Nhật bị quân Mỹ chiếm đóng trong khi Liên Xô chiếm đóng các nước Đông Âu.Trái với Chiến tranh thế giới thứ nhất, khi các giới hạn làm suy yếu các nước và các nước thua cuộc bị ngăn chặn việc tái hội nhập cộng đồng quốc tế, các nước thua cuộc đã được cung cấp viện trợ để phục hồi và hội nhập cộng đồng thế giới như các quốc gia hoà bình khác. Vì lẽ đó, Đức và Nhật đã trở thành hai nước quan trọng và có nhiều ảnh hưởng mà không cần phải khiêu chiến.Sự thất bại của Hội Quốc Liên trong việc ngăn chặn chiến tranh đã dẫn đến việc thành lập Liên Hiệp Quốc, một tổ chức quốc tế mới và có nhiều sửa đổi, cho đến nay vẫn là tổ chức quan trọng nhất trong việc thúc đẩy hoà bình và hợp tác.',
+            'image': '1024px-Vietnam_Peace_Treaty_1973.jpg'
+        },
+        {
+            'id': '17',
+            'event': '2-1945',
+            'country': '',
+            'content': 'Hội Nghị IANTA Gồm 3 nước Liên Xô, Mỹ, Anh',
+            'result': 'Hậu quả trực tiếp của chiến tranh này là sự chiến thắng của phía Đồng Minh. Mỗi nước trong phe Trục đều phải đầu hàng vô điều kiện. Đức bị các lực lượng từ Mỹ, Anh, Liên Xô và Pháp chiếm đóng, trong khi Áo bị chia cắt từ Đức và cũng bị chiếm đóng một cách tương tự. Nhật bị quân Mỹ chiếm đóng trong khi Liên Xô chiếm đóng các nước Đông Âu.Trái với Chiến tranh thế giới thứ nhất, khi các giới hạn làm suy yếu các nước và các nước thua cuộc bị ngăn chặn việc tái hội nhập cộng đồng quốc tế, các nước thua cuộc đã được cung cấp viện trợ để phục hồi và hội nhập cộng đồng thế giới như các quốc gia hoà bình khác. Vì lẽ đó, Đức và Nhật đã trở thành hai nước quan trọng và có nhiều ảnh hưởng mà không cần phải khiêu chiến.Sự thất bại của Hội Quốc Liên trong việc ngăn chặn chiến tranh đã dẫn đến việc thành lập Liên Hiệp Quốc, một tổ chức quốc tế mới và có nhiều sửa đổi, cho đến nay vẫn là tổ chức quan trọng nhất trong việc thúc đẩy hoà bình và hợp tác.',
+            'image': '1024px-Vietnam_Peace_Treaty_1973.jpg'
+        },
+        {
+            'id': '18',
+            'event': '1944',
+            'country': '',
+            'content': 'Mỹ , Anh mở mặt trận thứ hai ở Tây Âu bằng cuộc đổ bộ tại Nooc-măng-di (miền bắc Pháp)',
+            'result': 'Hậu quả trực tiếp của chiến tranh này là sự chiến thắng của phía Đồng Minh. Mỗi nước trong phe Trục đều phải đầu hàng vô điều kiện. Đức bị các lực lượng từ Mỹ, Anh, Liên Xô và Pháp chiếm đóng, trong khi Áo bị chia cắt từ Đức và cũng bị chiếm đóng một cách tương tự. Nhật bị quân Mỹ chiếm đóng trong khi Liên Xô chiếm đóng các nước Đông Âu.Trái với Chiến tranh thế giới thứ nhất, khi các giới hạn làm suy yếu các nước và các nước thua cuộc bị ngăn chặn việc tái hội nhập cộng đồng quốc tế, các nước thua cuộc đã được cung cấp viện trợ để phục hồi và hội nhập cộng đồng thế giới như các quốc gia hoà bình khác. Vì lẽ đó, Đức và Nhật đã trở thành hai nước quan trọng và có nhiều ảnh hưởng mà không cần phải khiêu chiến.Sự thất bại của Hội Quốc Liên trong việc ngăn chặn chiến tranh đã dẫn đến việc thành lập Liên Hiệp Quốc, một tổ chức quốc tế mới và có nhiều sửa đổi, cho đến nay vẫn là tổ chức quan trọng nhất trong việc thúc đẩy hoà bình và hợp tác.',
+            'image': '1024px-Vietnam_Peace_Treaty_1973.jpg'
+        },
+        {
+            'id': '19',
+            'event': 'tháng 2 đến tháng 4-1945',
+            'country': '',
+            'content': 'Liên Xô tấn công Bec Lin, đánh bại hơn 1 triệu quân Đức',
+            'result': 'Hậu quả trực tiếp của chiến tranh này là sự chiến thắng của phía Đồng Minh. Mỗi nước trong phe Trục đều phải đầu hàng vô điều kiện. Đức bị các lực lượng từ Mỹ, Anh, Liên Xô và Pháp chiếm đóng, trong khi Áo bị chia cắt từ Đức và cũng bị chiếm đóng một cách tương tự. Nhật bị quân Mỹ chiếm đóng trong khi Liên Xô chiếm đóng các nước Đông Âu.Trái với Chiến tranh thế giới thứ nhất, khi các giới hạn làm suy yếu các nước và các nước thua cuộc bị ngăn chặn việc tái hội nhập cộng đồng quốc tế, các nước thua cuộc đã được cung cấp viện trợ để phục hồi và hội nhập cộng đồng thế giới như các quốc gia hoà bình khác. Vì lẽ đó, Đức và Nhật đã trở thành hai nước quan trọng và có nhiều ảnh hưởng mà không cần phải khiêu chiến.Sự thất bại của Hội Quốc Liên trong việc ngăn chặn chiến tranh đã dẫn đến việc thành lập Liên Hiệp Quốc, một tổ chức quốc tế mới và có nhiều sửa đổi, cho đến nay vẫn là tổ chức quan trọng nhất trong việc thúc đẩy hoà bình và hợp tác.',
+            'image': '1024px-Vietnam_Peace_Treaty_1973.jpg'
+        },
+        {
+            'id': '20',
+            'event': '9-5-1945',
+            'country': '',
+            'content': 'Đức đầu hàng không điều kiện, Chiến tranh chấm dứt ở châu Âu',
+            'result': 'Hậu quả trực tiếp của chiến tranh này là sự chiến thắng của phía Đồng Minh. Mỗi nước trong phe Trục đều phải đầu hàng vô điều kiện. Đức bị các lực lượng từ Mỹ, Anh, Liên Xô và Pháp chiếm đóng, trong khi Áo bị chia cắt từ Đức và cũng bị chiếm đóng một cách tương tự. Nhật bị quân Mỹ chiếm đóng trong khi Liên Xô chiếm đóng các nước Đông Âu.Trái với Chiến tranh thế giới thứ nhất, khi các giới hạn làm suy yếu các nước và các nước thua cuộc bị ngăn chặn việc tái hội nhập cộng đồng quốc tế, các nước thua cuộc đã được cung cấp viện trợ để phục hồi và hội nhập cộng đồng thế giới như các quốc gia hoà bình khác. Vì lẽ đó, Đức và Nhật đã trở thành hai nước quan trọng và có nhiều ảnh hưởng mà không cần phải khiêu chiến.Sự thất bại của Hội Quốc Liên trong việc ngăn chặn chiến tranh đã dẫn đến việc thành lập Liên Hiệp Quốc, một tổ chức quốc tế mới và có nhiều sửa đổi, cho đến nay vẫn là tổ chức quan trọng nhất trong việc thúc đẩy hoà bình và hợp tác.',
+            'image': '1024px-Vietnam_Peace_Treaty_1973.jpg'
+        },
+        {
+            'id': '21',
+            'event': '6-8-1945',
+            'country': '',
+            'content': 'Mỹ ném hai quả bom nguyên tử xuống Hirosima, 8 vạn người thiệt mạng',
+            'result': 'Hậu quả trực tiếp của chiến tranh này là sự chiến thắng của phía Đồng Minh. Mỗi nước trong phe Trục đều phải đầu hàng vô điều kiện. Đức bị các lực lượng từ Mỹ, Anh, Liên Xô và Pháp chiếm đóng, trong khi Áo bị chia cắt từ Đức và cũng bị chiếm đóng một cách tương tự. Nhật bị quân Mỹ chiếm đóng trong khi Liên Xô chiếm đóng các nước Đông Âu.Trái với Chiến tranh thế giới thứ nhất, khi các giới hạn làm suy yếu các nước và các nước thua cuộc bị ngăn chặn việc tái hội nhập cộng đồng quốc tế, các nước thua cuộc đã được cung cấp viện trợ để phục hồi và hội nhập cộng đồng thế giới như các quốc gia hoà bình khác. Vì lẽ đó, Đức và Nhật đã trở thành hai nước quan trọng và có nhiều ảnh hưởng mà không cần phải khiêu chiến.Sự thất bại của Hội Quốc Liên trong việc ngăn chặn chiến tranh đã dẫn đến việc thành lập Liên Hiệp Quốc, một tổ chức quốc tế mới và có nhiều sửa đổi, cho đến nay vẫn là tổ chức quan trọng nhất trong việc thúc đẩy hoà bình và hợp tác.',
+            'image': '1024px-Vietnam_Peace_Treaty_1973.jpg'
+        },
+        {
+            'id': '22',
+            'event': '8-8-1945',
+            'country': '',
+            'content': 'Liên Xô tuyên chiến với Nhật,Tấn công đạo quân Quan Đông gồm 70 vạn quân Nhật ở Mãn Châu',
+            'result': 'Hậu quả trực tiếp của chiến tranh này là sự chiến thắng của phía Đồng Minh. Mỗi nước trong phe Trục đều phải đầu hàng vô điều kiện. Đức bị các lực lượng từ Mỹ, Anh, Liên Xô và Pháp chiếm đóng, trong khi Áo bị chia cắt từ Đức và cũng bị chiếm đóng một cách tương tự. Nhật bị quân Mỹ chiếm đóng trong khi Liên Xô chiếm đóng các nước Đông Âu.Trái với Chiến tranh thế giới thứ nhất, khi các giới hạn làm suy yếu các nước và các nước thua cuộc bị ngăn chặn việc tái hội nhập cộng đồng quốc tế, các nước thua cuộc đã được cung cấp viện trợ để phục hồi và hội nhập cộng đồng thế giới như các quốc gia hoà bình khác. Vì lẽ đó, Đức và Nhật đã trở thành hai nước quan trọng và có nhiều ảnh hưởng mà không cần phải khiêu chiến.Sự thất bại của Hội Quốc Liên trong việc ngăn chặn chiến tranh đã dẫn đến việc thành lập Liên Hiệp Quốc, một tổ chức quốc tế mới và có nhiều sửa đổi, cho đến nay vẫn là tổ chức quan trọng nhất trong việc thúc đẩy hoà bình và hợp tác.',
+            'image': '1024px-Vietnam_Peace_Treaty_1973.jpg'
+        },
+        {
+            'id': '23',
+            'event': '15-8-1945',
+            'country': '',
+            'content': 'Nhật đầu hàng vô điều kiện, Chiến tranh kết thúc.',
+            'result': 'Hậu quả trực tiếp của chiến tranh này là sự chiến thắng của phía Đồng Minh. Mỗi nước trong phe Trục đều phải đầu hàng vô điều kiện. Đức bị các lực lượng từ Mỹ, Anh, Liên Xô và Pháp chiếm đóng, trong khi Áo bị chia cắt từ Đức và cũng bị chiếm đóng một cách tương tự. Nhật bị quân Mỹ chiếm đóng trong khi Liên Xô chiếm đóng các nước Đông Âu.Trái với Chiến tranh thế giới thứ nhất, khi các giới hạn làm suy yếu các nước và các nước thua cuộc bị ngăn chặn việc tái hội nhập cộng đồng quốc tế, các nước thua cuộc đã được cung cấp viện trợ để phục hồi và hội nhập cộng đồng thế giới như các quốc gia hoà bình khác. Vì lẽ đó, Đức và Nhật đã trở thành hai nước quan trọng và có nhiều ảnh hưởng mà không cần phải khiêu chiến.Sự thất bại của Hội Quốc Liên trong việc ngăn chặn chiến tranh đã dẫn đến việc thành lập Liên Hiệp Quốc, một tổ chức quốc tế mới và có nhiều sửa đổi, cho đến nay vẫn là tổ chức quan trọng nhất trong việc thúc đẩy hoà bình và hợp tác.',
+            'image': '1024px-Vietnam_Peace_Treaty_1973.jpg'
+        },
+    ]
+    const nameEvent = [
+        {
+            'name':'Adolf Hitler'
+        },
+        {
+            'name':'Tưởng Giới Thạch'
+        },
+        {
+            'name':'Franklin D. Roosevelt'
+        }
+    ]
+    
+    const nameHistory = [
+        {
+            name:'Chiến tranh thế giới thứ 2'
+        },
+        {
+            name:'Phát xít Đức'
+        },
+        {
+            name:'Hồng quân Liên Xô'
+        }
+    ]
+    let popup = document.getElementById('popup'),
+        event = document.getElementById('event'),
+        content = document.getElementById('content');
+
+    cancel.onclick = function () {
+        popup.style.display = 'none';
+    }
+    // $('#event').keypress(function (event) {
+    //     var keycode = (event.keyCode ? event.keyCode : event.which);
+    //     if (keycode == '13') {
+    //         //alert('Bạn vừa nhap: '+$('#event').val());
+    //         popup.style.display = 'block';
+    //     }
+    // });
+    /*****************/
+    //event
+    $('#event').keyup(function () {
+        $('#resultEvent').css('display', 'block');
+        var li = " ";
+        for (var i = 0; i < jsonEvent.length; i++) {
+            //('#event').val()
+            let search = jsonEvent[i].event.toLocaleUpperCase().indexOf($('#event').val().toLocaleUpperCase());
+            if (search != -1) {
+                li += "<li style='font-size:24px' onClick='test(" + 1 + ")'/>" + jsonEvent[i].event + "</li>";
+            }
+        }
+        if ($('#event').val() == '') {
+            li = ' ';
+        }
+        $('#resultEvent').html(li);
+    })
+    //name
+    $('#namename').keyup(function () {
+        $('#resultName').css('display', 'block');
+        var li1 = " ";
+        for (var i = 0; i < nameEvent.length; i++) {
+            //('#event').val()
+            let search1 = nameEvent[i].name.toLocaleUpperCase().indexOf($('#namename').val().toLocaleUpperCase());
+            if (search1 != -1) {
+                li1 += "<li style='font-size:24px' onClick='test(" + 1 + ")'/>" + nameEvent[i].name + "</li>";
+            }
+        }
+        if ($('#namename').val() == '') {
+            li1 = ' ';
+        }
+        $('#resultName').html(li1);
+    })
+    //HIstory
+    $('#history').keyup(function () {
+        $('#resultHistory').css('display', 'block');
+        var li2 = " ";
+        for (var i = 0; i < nameHistory.length; i++) {
+            //('#event').val()
+            let search1 = nameHistory[i].name.toLocaleUpperCase().indexOf($('#history').val().toLocaleUpperCase());
+            if (search1 != -1) {
+                li2 += "<li style='font-size:24px' onClick='test(" + 1 + ")'/>" + nameHistory[i].name + "</li>";
+            }
+        }
+        if ($('#history').val() == '') {
+            li2 = ' ';
+        }
+        $('#resultHistory').html(li2);
+    })
+    function test(value) {
+        popup.style.display = 'block';
+        //$('#content').html(jsonEvent[0].text + "<img class='response' src='images/1024px-Vietnam_Peace_Treaty_1973.jpg'>");
+        var render = ' ';
+        render += '<tr>';
+        render += "<th style='padding:0 90px'>Thời gian</th>";
+        render += "<th style='padding:0 30px;text-align:center'>Nước tham gia</th>";
+        render += '<th>Nội dung</th>';
+        render += '</tr>';
+
+
+        for (var i = 0; i < jsonEvent.length; i++) {
+            render += '<tr>';
+            render += "<td style='border:1px solid black;text-align:center'>" + jsonEvent[i].event + "</td>";
+            render += "<td style='border:1px solid black;text-align:center;padding:0 10px'>" + jsonEvent[i].country + "</td>";
+            render += "<td style='border:1px solid black;padding:10px 10px'>" + jsonEvent[i].content + "</td>";
+            render += '</tr>';
+        }
+        $('#table').html(render);
+
+        $('#result').html(jsonEvent[1].result);
+    }
+    //*************************/
+
+
+
+    function close1() {
+        $('#resultEvent').css('display', 'none');
+    }
+    function close2() {
+        $('#resultName').css('display', 'none');
+    }
+
+    $('#container').click(function(){
+        $('#resultName').css('display','none');
+    })
+    $('#container').click(function(){
+        $('#resultEvent').css('display','none');
+    })
+
+    $('#container').click(function(){
+        $('#resultHistory').css('display','none');
+    })
+
+</script>
+
+</html>
